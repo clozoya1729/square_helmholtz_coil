@@ -1,8 +1,8 @@
-function B = emf_at_point(spacePermeability, coordinate, current, coils)
+function B = emf_at_point(permeability, coordinate, current, coils)
     % EMF_AT_POINT Calculates the emf magnitude at a point in space
-    emfX = coils(1).emf(coordinate(1), current(1), spacePermeability);
-    emfY = coils(2).emf(coordinate(2), current(2), spacePermeability);
-    emfZ = coils(3).emf(coordinate(3), current(3), spacePermeability);
-    B = emfX + emfY + emfZ;
+    B = 0;
+    for i=1:3
+        B = B + coils(i).emf(coordinate(i), current(i), permeability);
+    end
 end
 
