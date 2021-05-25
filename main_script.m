@@ -14,12 +14,8 @@ linspaceZ = linspace(-lengths(3), lengths(3), 2*resolution);
 x = [X(:); X(:); X(:)];
 y = [Y(:); Y(:); Y(:)];
 z = [Z(:); Z(:); Z(:)];
-B = [X(:); X(:); X(:)];
 % Helmholtz Coils
-hcX = HelmholtzCoil(lengths(1), spacings(1), windings(1));
-hcY = HelmholtzCoil(lengths(2), spacings(2), windings(2));
-hcZ = HelmholtzCoil(lengths(3), spacings(3), windings(3));
-coils = [hcX hcY hcZ];
+coils = make_hc3(lengths, spacings, windings);
 emfVolume = emf_volume(permeability, current, coils, resolution);
 % PLOT
 scatter3(X(:), Y(:), Z(:), scatterSize, emfVolume(:), 'filled');
