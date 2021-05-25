@@ -23,4 +23,3 @@ classdef HelmholtzCoil
         end
     end
 end
-
